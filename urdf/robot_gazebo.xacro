@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+ 
+<xacro:property name="body_color" value="Gazebo/Silver" />
+ 
+<gazebo>
+  <static>false</static>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/mugator_manip</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <legacyModeNS>true</legacyModeNS>
+  </plugin>
+</gazebo>
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+</gazebo>
+ 
+<gazebo reference="rueda_v6__2__1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+</gazebo>
+ 
+<gazebo reference="rueda_v6__1__1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+</gazebo>
+ 
+<gazebo reference="rueda_v6__4__1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+</gazebo>
+ 
+<gazebo reference="rueda_v6__3__1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+</gazebo>
+ 
+<gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+ 
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50</updateRate>
+      <leftJoint>wheel_left_joint</leftJoint>
+      <rightJoint>wheel_right_joint</rightJoint>
+      <wheelSeparation>0.25</wheelSeparation>
+      <wheelDiameter>0.118</wheelDiameter>
+      <wheelAcceleration>0.1</wheelAcceleration>
+      <wheelTorque>10</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>world</odometrySource>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <publishTF>true</publishTF>
+      <publishOdomTF>true</publishOdomTF>
+      <publishWheelTF>false</publishWheelTF>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <rosDebugLevel>na</rosDebugLevel>
+ 
+    </plugin>
+</gazebo>
+ 
+ 
+</robot>
+

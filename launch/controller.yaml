@@ -1,0 +1,42 @@
+robot_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  revolucion4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion4
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  revolucion5_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion5
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  corredera7_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: corredera7
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  revolucion12_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion12
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  revolucion13_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion13
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  revolucion14_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion14
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  revolucion15_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion15
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  revolucion16_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: revolucion16
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+
+

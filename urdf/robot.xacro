@@ -1,0 +1,256 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_description)/urdf/robot.trans" />
+<xacro:include filename="$(find robot_description)/urdf/robot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0003127797995900869 0.0014327057821856926 0.0951674253043274" rpy="0 0 0"/>
+    <mass value="7.008262743982289"/>
+    <inertia ixx="0.040031" iyy="0.07458" izz="0.10706" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link2_1">
+  <inertial>
+    <origin xyz="-0.03229264415707544 -0.025000294217811414 -0.00034814089413653937" rpy="0 0 0"/>
+    <mass value="1.4547119584951695"/>
+    <inertia ixx="0.000525" iyy="0.001495" izz="0.00165" ixy="0.0" iyz="-0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001951 -0.026433 -0.367671" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001951 -0.026433 -0.367671" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link3_1">
+  <inertial>
+    <origin xyz="0.0004440114557990038 -0.021100294217810664 -0.04120921448902315" rpy="0 0 0"/>
+    <mass value="1.3348529203290616"/>
+    <inertia ixx="0.002173" iyy="0.00219" izz="0.000438" ixy="-0.0" iyz="-0.0" ixz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.101945 -0.022433 -0.366593" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.101945 -0.022433 -0.366593" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="efector_final_v6_1">
+  <inertial>
+    <origin xyz="0.0005770733659765659 -2.9421638739245484e-07 -0.05355220008651834" rpy="0 0 0"/>
+    <mass value="0.07732126904271316"/>
+    <inertia ixx="7.9e-05" iyy="7.9e-05" izz="8e-06" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.101503 -0.001333 -0.325595" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/efector_final_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.101503 -0.001333 -0.325595" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/efector_final_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link1_1">
+  <inertial>
+    <origin xyz="-0.0009802435587231363 -0.037500294217812744 0.090904175831996" rpy="0 0 0"/>
+    <mass value="4.957865445681325"/>
+    <inertia ixx="0.022105" iyy="0.020243" izz="0.003158" ixy="-0.0" iyz="0.0" ixz="0.000204"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000313 -0.038933 -0.157683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000313 -0.038933 -0.157683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v6__2__1">
+  <inertial>
+    <origin xyz="-3.8017618496366534e-07 0.030007553460228265 2.3750010800604383e-07" rpy="0 0 0"/>
+    <mass value="0.24963094558243556"/>
+    <inertia ixx="0.000325" iyy="0.000482" izz="0.000325" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.100313 -0.126433 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.100313 -0.126433 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v6__1__1">
+  <inertial>
+    <origin xyz="-3.8217626732728327e-07 0.030007553460233594 3.949807601683064e-07" rpy="0 0 0"/>
+    <mass value="0.24963094558243573"/>
+    <inertia ixx="0.000325" iyy="0.000482" izz="0.000325" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.099687 -0.126433 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.099687 -0.126433 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v6__4__1">
+  <inertial>
+    <origin xyz="-1.870377545482027e-07 -0.030008141895863413 -4.469378613036756e-08" rpy="0 0 0"/>
+    <mass value="0.24963094558243856"/>
+    <inertia ixx="0.000325" iyy="0.000482" izz="0.000325" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.100313 0.123567 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.100313 0.123567 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v6__3__1">
+  <inertial>
+    <origin xyz="-4.6450394160235664e-07 -0.030008141895858223 1.4778860908670755e-07" rpy="0 0 0"/>
+    <mass value="0.24963094558243595"/>
+    <inertia ixx="0.000325" iyy="0.000482" izz="0.000325" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.099687 0.123567 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.099687 0.123567 -0.062683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/rueda_v6__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="revolucion4" type="revolute">
+  <origin xyz="-0.002264 -0.0125 0.209988" rpy="0 0 0"/>
+  <parent link="link1_1"/>
+  <child link="link2_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="0.261799" lower="-3.141593" effort="100" velocity="100"/>
+</joint>
+
+<joint name="revolucion5" type="revolute">
+  <origin xyz="-0.099994 -0.004 -0.001078" rpy="0 0 0"/>
+  <parent link="link2_1"/>
+  <child link="link3_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="0.261799" lower="-3.141593" effort="100" velocity="100"/>
+</joint>
+
+<joint name="corredera7" type="prismatic">
+  <origin xyz="0.000442 -0.0211 -0.040998" rpy="0 0 0"/>
+  <parent link="link3_1"/>
+  <child link="efector_final_v6_1"/>
+  <axis xyz="0.01078 0.0 -0.999942"/>
+  <limit upper="0.05" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="revolucion12" type="revolute">
+  <origin xyz="0.000313 0.038933 0.157683" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link1_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="0.959931" lower="-0.959931" effort="100" velocity="100"/>
+</joint>
+
+<joint name="revolucion13" type="continuous">
+  <origin xyz="0.100313 0.126433 0.062683" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rueda_v6__2__1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="revolucion14" type="continuous">
+  <origin xyz="-0.099687 0.126433 0.062683" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rueda_v6__1__1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="revolucion15" type="continuous">
+  <origin xyz="0.100313 -0.123567 0.062683" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rueda_v6__4__1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="revolucion16" type="continuous">
+  <origin xyz="-0.099687 -0.123567 0.062683" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rueda_v6__3__1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+</robot>

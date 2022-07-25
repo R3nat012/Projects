@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+#
+
+from __future__ import print_function
+import rospy
+from sensor_msgs.msg import JointState
+
+from markers import *
+from Funciones import *
+
+
+# Initialize the node
+rospy.init_node("testKineControlPosition")
+print('starting motion ... ')
+# Publisher: publish to the joint_states topic
+pub = rospy.Publisher('joint_states', JointState, queue_size=10)
+# Files for the logs
+fxcurrent = open("/tmp/xcurrent.txt", "w")                
+fxdesired = open("/tmp/xdesired.txt", "w")
+fq = open("/tmp/q.txt", "w")
+
+# Markers for the current and desired positions
+bmarker_current  = BallMarker(color['RED'])
+bmarker_desired = BallMarker(color['GREEN'])
+
+# Joint names
+jnames = ['revolucion12', 'revolucion4', 'revolucion5','corredera7', 'revolucion13', 'revolucion14', 'revolucion15', 'revolucion16']
+
+# Desired position
+xd = np.array([0.2, 0.3, 0]) #xd = (z,x,y)
+# Initial configuration
+q0 = np.array([0.0, 0.0, 0.0, 0.0])
+
+
+# Resulting initial position (end effector with respect to the base link)
+T = fkine(q0)
+x0 = T[0:3,3]
+x = copy(x0)
+
+# Red marker shows the achieved position
+bmarker_current.xyz(x0)
+# Green marker shows the desired position
+bmarker_desired.xyz(xd)
+
+# Instance of the JointState message
+jstate = JointState()
+# Values of the message
+jstate.header.stamp = rospy.Time.now()
+jstate.name = jnames
+# Add the head joint value (with value 0) to the joints
+q0r = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+jstate.position = q0r
+
+# Frequency (in Hz) and control period 
+freq = 200
+dt = 1.0/freq
+rate = rospy.Rate(freq)
+
+# Initial joint configuration
+q = copy(q0)
+k = 0.5
+# Main loop
+while not rospy.is_shutdown():
+    # Current time (needed for ROS)
+    # Kinematic control law for position (complete here)
+    # -----------------------------
+    e = x-xd
+    J = jacobiano(q)
+    J_pseud = np.linalg.pinv(J)
+    epunto = -k*e
+    qpunto = np.dot(J_pseud,epunto)
+    q = q + dt*qpunto
+    # -----------------------------
+    T1 = fkine(q)
+    x = T1[0:3,3]
+    print(np.linalg.norm(e))
+
+
+    
+    # Log values                                                      
+    fxcurrent.write(str(x[0])+' '+str(x[1]) +' '+str(x[2])+'\n')
+    fxdesired.write(str(xd[0])+' '+str(xd[1])+' '+str(xd[2])+'\n')
+    fq.write(str(q[0])+" "+str(q[1])+" "+str(q[2])+" "+str(q[3])+"\n")
+    
+    # Publish the message
+    qrueda = np.array([ 0, 0, 0, 0])
+    qfinal = np.concatenate((q,qrueda))
+    jstate.position = qfinal
+    pub.publish(jstate)
+    bmarker_desired.xyz(xd)
+    bmarker_current.xyz(x)
+    # Wait for the next iteration
+    rate.sleep()
+    if(np.linalg.norm(e)<0.05):
+        break
+
+
+print('ending motion ...')
+fxcurrent.close()
+fxdesired.close()
+fq.close()
